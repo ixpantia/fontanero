@@ -15,6 +15,8 @@ RUN microdnf install patch patchutils rcs swig systemtap  --enablerepo=rhel-7-se
 RUN microdnf clean all
 RUN microdnf install libcurl-devel openssl-devel libxml2-devel --enablerepo=rhel-7-server-rpms
 RUN microdnf clean all
+RUN microdnf install wget --enablerepo=rhel-7-server-rpms
+RUN microdnf clean all
 RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN rpm -Uvh epel-release-latest-7*.rpm
 RUN microdnf update
