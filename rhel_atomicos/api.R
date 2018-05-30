@@ -4,10 +4,8 @@ library(jsonlite)
 # ------------- GET------------------
 #* @get /
 function() {
-    ejemplo <- fromJSON(
-    '{"fontanero" : "RHEL Atomic"}'
-    )
-  return(ejemplo)
+    info <- toJSON(R.Version())
+  return(info)
 }
 
 #* @get /1
@@ -29,26 +27,32 @@ function() {
 #* @get /3
 function() {
   `valór_ácentos` <- 23
-  ejemplo <- `valór_ácentos`   
+  ejemplo <- `valór_ácentos`
   return(ejemplo)
 }
 
 #* @get /4
+function() {
+  ejemplo <- data.frame(`cólúmná_ácentos` = "cónténídó")
+  return(ejemplo)
+}
+
+#* @get /5
 function() {
   `valór_ácentos` <- 23
-  ejemplo <- `valór_ácentos`   
+  ejemplo <- `valór_ácentos`
   return(ejemplo)
 }
 
-#* @get /4
+#* @get /5
 function() {
   `valór_ácentos` <- 46
-  ejemplo <- `valór_ácentos`   
+  ejemplo <- `valór_ácentos`
   return(ejemplo)
 }
 
 # ------------- POST ------------------
-#* @post /5
+#* @post /6
 function(
   data
 ) {
@@ -56,7 +60,7 @@ function(
   return(ejemplo)
 }
 
-#* @post /6
+#* @post /7
 function(
   data
 ) {
@@ -64,30 +68,37 @@ function(
   return(ejemplo)
 }
 
-#* @post /7
-function(
-  data
-  ) {
-  `valór_ácentos` <- 23 * data
-  ejemplo <- `valór_ácentos`   
-  return(ejemplo)
-}
-
 #* @post /8
 function(
   data
   ) {
   `valór_ácentos` <- 23 * data
-  ejemplo <- `valór_ácentos`   
+  ejemplo <- `valór_ácentos`
   return(ejemplo)
 }
 
-#* @post /8
+#* @post /9
+function(data) {
+  ejemplo <- data.frame(`cólúmná_ácentos` = "cónténídó")
+  return(ejemplo)
+}
+
+
+#* @post /10
+function(
+  data
+  ) {
+  `valór_ácentos` <- 23 * data
+  ejemplo <- `valór_ácentos`
+  return(ejemplo)
+}
+
+#* @post /10
 function(
   data
   ) {
   `valór_ácentos` <- 46 * data
-  ejemplo <- `valór_ácentos`   
+  ejemplo <- `valór_ácentos`
   return(ejemplo)
 }
 
