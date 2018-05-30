@@ -5,7 +5,7 @@ library(jsonlite)
 #* @get /
 function() {
     ejemplo <- fromJSON(
-    '{"Hola" : "Fontanero"}'
+    '{"fontanero" : "CentOS Atomic"}'
     )
   return(ejemplo)
 }
@@ -64,7 +64,7 @@ function(
   return(ejemplo)
 }
 
-#* @get /7
+#* @post /7
 function(
   data
   ) {
@@ -73,7 +73,7 @@ function(
   return(ejemplo)
 }
 
-#* @get /8
+#* @post /8
 function(
   data
   ) {
@@ -82,7 +82,7 @@ function(
   return(ejemplo)
 }
 
-#* @get /8
+#* @post /8
 function(
   data
   ) {
@@ -90,3 +90,4 @@ function(
   ejemplo <- `valór_ácentos`   
   return(ejemplo)
 }
+
