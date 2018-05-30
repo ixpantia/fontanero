@@ -5,7 +5,7 @@ library(jsonlite)
 #* @get /
 function() {
     ejemplo <- fromJSON(
-    '{"Hola" : "Fontanero"}'
+    '{"fontanero" : "Debian (rocker)"}'
     )
   return(ejemplo)
 }
@@ -29,21 +29,21 @@ function() {
 #* @get /3
 function() {
   `valór_ácentos` <- 23
-  ejemplo <- `valór_ácentos`   
+  ejemplo <- `valór_ácentos`
   return(ejemplo)
 }
 
 #* @get /4
 function() {
   `valór_ácentos` <- 23
-  ejemplo <- `valór_ácentos`   
+  ejemplo <- `valór_ácentos`
   return(ejemplo)
 }
 
 #* @get /4
 function() {
   `valór_ácentos` <- 46
-  ejemplo <- `valór_ácentos`   
+  ejemplo <- `valór_ácentos`
   return(ejemplo)
 }
 
@@ -64,29 +64,30 @@ function(
   return(ejemplo)
 }
 
-#* @get /7
+#* @post /7
 function(
   data
   ) {
   `valór_ácentos` <- 23 * data
-  ejemplo <- `valór_ácentos`   
+  ejemplo <- `valór_ácentos`
   return(ejemplo)
 }
 
-#* @get /8
+#* @post /8
 function(
   data
   ) {
   `valór_ácentos` <- 23 * data
-  ejemplo <- `valór_ácentos`   
+  ejemplo <- `valór_ácentos`
   return(ejemplo)
 }
 
-#* @get /8
+#* @post /8
 function(
   data
   ) {
   `valór_ácentos` <- 46 * data
-  ejemplo <- `valór_ácentos`   
+  ejemplo <- `valór_ácentos`
   return(ejemplo)
 }
+
