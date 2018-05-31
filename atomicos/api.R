@@ -1,5 +1,6 @@
 library(plumber)
 library(jsonlite)
+library(dplyr)
 
 # ------------- GET------------------
 #* @get /
@@ -51,8 +52,19 @@ function() {
   return(ejemplo)
 }
 
+#* @get /6
+function() {
+  ejemplo <- data.frame(
+    nombre_ascii = 5,
+    otro_nombre_ascii = "algo")
+  ejemplo <- ejemplo %>%
+    rename(`cólúmná_ácentos` = nombre_ascii) %>%
+    rename(`más_ácéntós` = otro_nombre_ascii)
+  return(ejemplo)
+}
+
 # ------------- POST ------------------
-#* @post /6
+#* @post /7
 function(
   data
 ) {
@@ -60,7 +72,7 @@ function(
   return(ejemplo)
 }
 
-#* @post /7
+#* @post /8
 function(
   data
 ) {
@@ -68,7 +80,7 @@ function(
   return(ejemplo)
 }
 
-#* @post /8
+#* @post /9
 function(
   data
   ) {
@@ -77,14 +89,14 @@ function(
   return(ejemplo)
 }
 
-#* @post /9
+#* @post /10
 function(data) {
   ejemplo <- data.frame(`cólúmná_ácentos` = "cónténídó")
   return(ejemplo)
 }
 
 
-#* @post /10
+#* @post /11
 function(
   data
   ) {
@@ -93,12 +105,14 @@ function(
   return(ejemplo)
 }
 
-#* @post /10
-function(
-  data
-  ) {
-  `valór_ácentos` <- 46 * data
-  ejemplo <- `valór_ácentos`
+
+#* @post /12
+function() {
+  ejemplo <- data.frame(
+    nombre_ascii = 5,
+    otro_nombre_ascii = "algo")
+  ejemplo <- ejemplo %>%
+    rename(`cólúmná_ácentos` = nombre_ascii) %>%
+    rename(`más_ácéntós` = otro_nombre_ascii)
   return(ejemplo)
 }
-

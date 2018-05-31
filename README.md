@@ -11,7 +11,7 @@ Una imagen sobre debian del proyecto rocker.
 
     curl localhost:8080/
 
-> ["{\"platform\":[\"x86_64-pc-linux-gnu\"],\"arch\":[\"x86_64\"],\"os\":[\"linux-gnu\"],\"system\":[\"x86_64, linux-gnu\"],\"status\":[\"\"],\"major\":[\"3\"],\"minor\":[\"4.4\"],\"year\":[\"2018\"],\"month\":[\"03\"],\"day\":[\"15\"],\"svn rev\":[\"74408\"],\"language\":[\"R\"],\"version.string\":[\"R version 3.4.4 (2018-03-15)\"],\"nickname\":[\"Someone to Lean On\"]}"]%      
+> ["{\"platform\":[\"x86_64-pc-linux-gnu\"],\"arch\":[\"x86_64\"],\"os\":[\"linux-gnu\"],\"system\":[\"x86_64, linux-gnu\"],\"status\":[\"\"],\"major\":[\"3\"],\"minor\":[\"4.4\"],\"year\":[\"2018\"],\"month\":[\"03\"],\"day\":[\"15\"],\"svn rev\":[\"74408\"],\"language\":[\"R\"],\"version.string\":[\"R version 3.4.4 (2018-03-15)\"],\"nickname\":[\"Someone to Lean On\"]}"]
 
 ### /1 GET simple ascii
 
@@ -37,7 +37,7 @@ Una imagen sobre debian del proyecto rocker.
 
     curl localhost:8080/3
 
->[23]    
+>[23]
 
     curl -d '{"data":23}' -X POST localhost:8080/3 
 
@@ -47,7 +47,7 @@ Una imagen sobre debian del proyecto rocker.
 
     curl localhost:8080/4
 
-> [{"cólúmná_ácentos":"cónténídó"}]%  
+> [{"cólúmná_ácentos":"cónténídó"}]
 
     curl -d '{"data":23}' -X POST localhost:8080/4 
 
@@ -57,23 +57,23 @@ Una imagen sobre debian del proyecto rocker.
 
     curl localhost:8080/5
 
->[23]    
+>[23]
 
     curl -d '{"data":23}' -X POST localhost:8080/5
 
 > {"error":["404 - Resource Not Found"]}
 
-### /6 POST simple 
+### /6 GET con un rename complejo en dplyr
 
     curl localhost:8080/6
 
 > {"error":["404 - Resource Not Found"]} 
 
-    curl -d '{"data":23}' -X POST localhost:8080/6
+    curl -d '{"data":23}' -X POST localhost:8080/6 
 
->[23]    
+> [{"cólúmná_ácentos":5,"más_ácéntós":"algo"}]
 
-### /7 POST simple con non-ascii
+### /7 POST simple 
 
     curl localhost:8080/7
 
@@ -81,9 +81,9 @@ Una imagen sobre debian del proyecto rocker.
 
     curl -d '{"data":23}' -X POST localhost:8080/7
 
-> ["ñ é í ó - algunos ejemplos"] 
+>[23]
 
-### /8 POST nombre variable non-ascii
+### /8 POST simple con non-ascii
 
     curl localhost:8080/8
 
@@ -91,29 +91,48 @@ Una imagen sobre debian del proyecto rocker.
 
     curl -d '{"data":23}' -X POST localhost:8080/8
 
-> [529]
+> ["ñ é í ó - algunos ejemplos"] 
 
-
-### /9 POST nombre columan datafram non-ascii
+### /9 POST nombre variable non-ascii
 
     curl localhost:8080/9
 
-> {"error":["404 - Resource Not Found"]}
+> {"error":["404 - Resource Not Found"]} 
 
     curl -d '{"data":23}' -X POST localhost:8080/9
 
-> [{"cólúmná_ácentos":"cónténídó"}]
+> [529]
 
-### /10 POST endpoint repetido
+
+### /10 POST nombre columna datafram non-ascii
 
     curl localhost:8080/10
 
-> {"error":["404 - Resource Not Found"]} 
+> {"error":["404 - Resource Not Found"]}
 
     curl -d '{"data":23}' -X POST localhost:8080/10
 
+> [{"cólúmná_ácentos":"cónténídó"}]
+
+### /11 POST endpoint repetido
+
+    curl localhost:8080/11
+
+> {"error":["404 - Resource Not Found"]} 
+
+    curl -d '{"data":23}' -X POST localhost:8080/11
+
 > [529]
 
+### /12 POST con un rename complejo en dplyr
+
+    curl localhost:8080/12
+
+> {"error":["404 - Resource Not Found"]} 
+
+    curl -d '{"data":23}' -X POST localhost:8080/12
+
+> [{"cólúmná_ácentos":5,"más_ácéntós":"algo"}]%   
 
 ## atomicos
 Una imagen on CentOS AtomicOS.
@@ -141,7 +160,7 @@ Una imagen on CentOS AtomicOS.
 
     curl localhost:8080/2
 
-> {"get":["<c3><b1> <c3><a9> <c3><ad> <c3><b3> - algunos ejemplos"]}%   
+> {"get":["<c3><b1> <c3><a9> <c3><ad> <c3><b3> - algunos ejemplos"]}
 
     curl -d '{"data":23}' -X POST localhost:8080/2
 
@@ -151,7 +170,7 @@ Una imagen on CentOS AtomicOS.
 
     curl localhost:8080/3
 
->[23]    
+>[23]
 
     curl -d '{"data":23}' -X POST localhost:8080/3 
 
@@ -161,7 +180,7 @@ Una imagen on CentOS AtomicOS.
 
     curl localhost:8080/4
 
->[23]    
+>[23]
 
     curl -d '{"data":23}' -X POST localhost:8080/4 
 
@@ -171,13 +190,13 @@ Una imagen on CentOS AtomicOS.
 
     curl localhost:8080/5
 
->[23]    
+>[23]
 
     curl -d '{"data":23}' -X POST localhost:8080/5 
 
 > {"error":["404 - Resource Not Found"]}
 
-### /6 POST simple 
+### /6 GET con un rename complejo en dplyr
 
     curl localhost:8080/6
 
@@ -185,7 +204,7 @@ Una imagen on CentOS AtomicOS.
 
     curl -d '{"data":23}' -X POST localhost:8080/6 
 
->[23]    
+> [{"c<c3><b3>l<c3><ba>mn<c3><a1>_<c3><a1>centos":5,"m<c3><a1>s_<c3><a1>c<c3><a9>nt<c3><b3>s":"algo"}]
 
 ### /7 POST simple con non-ascii
 
@@ -195,7 +214,7 @@ Una imagen on CentOS AtomicOS.
 
     curl -d '{"data":23}' -X POST localhost:8080/7
 
->["<c3><b1> <c3><a9> <c3><ad> <c3><b3> - algunos ejemplos"]    
+>["<c3><b1> <c3><a9> <c3><ad> <c3><b3> - algunos ejemplos"]
 
 ### /8 POST nombre variable non-ascii
 
@@ -217,13 +236,32 @@ Una imagen on CentOS AtomicOS.
 
 > [529]
 
-### /10 POST endpoint repetido
+### /10 POST nombre columna datafram non-ascii
 
     curl localhost:8080/10
 
-> {"error":["404 - Resource Not Found"]}
+> 
 
     curl -d '{"data":23}' -X POST localhost:8080/10
 
+>
+
+### /11 POST endpoint repetido
+
+    curl localhost:8080/11
+
+> {"error":["404 - Resource Not Found"]}
+
+    curl -d '{"data":23}' -X POST localhost:8080/11
+
 > [529]
 
+### /12 POST con un rename complejo en dplyr
+
+    curl localhost:8080/12
+
+> {"error":["404 - Resource Not Found"]} 
+
+    curl -d '{"data":23}' -X POST localhost:8080/12
+
+> [{"c<c3><b3>l<c3><ba>mn<c3><a1>_<c3><a1>centos":5,"m<c3><a1>s_<c3><a1>c<c3><a9>nt<c3><b3>s":"algo"}]

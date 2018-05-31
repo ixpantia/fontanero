@@ -12,6 +12,7 @@ RUN R -e "install.packages('devtools', repos = 'https://cloud.r-project.org/')"
 
 RUN R -e "devtools::install_version('plumber', version = '0.4.4', repos = 'https://cloud.r-project.org/')"
 RUN R -e "devtools::install_version('jsonlite', version = '1.5', repos = 'https://cloud.r-project.org/')"
+RUN R -e "devtools::install_version('dplyr', version = '0.7.5', repos = 'https://cloud.r-project.org/')"
 
 COPY . /app
 WORKDIR /app
