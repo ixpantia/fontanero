@@ -1,3 +1,5 @@
+options(encoding = "UTF-8")
+
 library(plumber)
 library(jsonlite)
 library(dplyr)
