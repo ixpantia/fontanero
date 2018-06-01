@@ -3,7 +3,6 @@ FROM registry.centos.org/centos/centos7-atomic
 MAINTAINER "frans@ixpantia.com"
 
 RUN microdnf update
-RUN microdnf install gcc gcc-c++ gcc-gfortran
 RUN microdnf clean all
 RUN microdnf install bison byacc cscope ctags cvs diffstat doxygen
 RUN microdnf clean all
