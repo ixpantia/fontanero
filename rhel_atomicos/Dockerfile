@@ -2,6 +2,9 @@ FROM registry.access.redhat.com/rhel7/rhel-atomic
 
 MAINTAINER "frans@ixpantia.com"
 
+ENV LC_ALL=en_US.UTF-8
+ENV LANG=en_US.UTF-8
+
 RUN microdnf update
 RUN microdnf install gcc gcc-c++ gcc-gfortran --enablerepo=rhel-7-server-rpms
 RUN microdnf clean all
