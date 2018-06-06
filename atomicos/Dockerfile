@@ -3,6 +3,7 @@ FROM registry.centos.org/centos/centos7-atomic
 MAINTAINER "frans@ixpantia.com"
 
 ENV LC_ALL=en_US.UTF-8
+ENV LANG=en_US.UTF-8
 
 RUN microdnf update
 RUN microdnf clean all
@@ -18,8 +19,6 @@ RUN microdnf install libcurl-devel openssl-devel libxml2-devel
 RUN microdnf clean all
 RUN microdnf install epel-release
 RUN microdnf install R
-
-RUN export LC_ALL=en_US.UTF-8
 
 RUN R -e "install.packages('devtools', repos = 'https://cloud.r-project.org/')"
 
